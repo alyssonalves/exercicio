@@ -17,6 +17,13 @@ public class Questao3 {
 		char[] texto1 = palavra1.toCharArray();
 		char[] texto2 = palavra2.toCharArray();
 		
+		for(char a : texto1) {
+			
+			for(char b : texto2) {
+				
+			}
+		}
+		
 		
 		if(tamanhoPalavra1 > tamanhoPalavra2) {
 			diferencaTamanho = tamanhoPalavra1 - tamanhoPalavra2;
