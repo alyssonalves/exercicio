@@ -4,6 +4,9 @@ public class Questao3 {
 	public static void main(String[] args) {
 
 		System.out.println(erroDigitacao("pale", "ple"));
+		System.out.println(erroDigitacao("pales", "pale"));
+		System.out.println(erroDigitacao("pale", "bale"));
+		System.out.println(erroDigitacao("pale", "bake"));
 
 	}
 
@@ -11,33 +14,37 @@ public class Questao3 {
 
 		int tamanhoPalavra1 = palavra1.length();
 		int tamanhoPalavra2 = palavra2.length();
-		int quatidadeMudanca  = 0;
-		int diferencaTamanho = 0;
+		int quatidadeDiferencas = 0;
 		
 		char[] texto1 = palavra1.toCharArray();
 		char[] texto2 = palavra2.toCharArray();
 		
-		for(char a : texto1) {
+		char[] texto3 = new char[tamanhoPalavra1];
+		
+		
+		for(int i = 0; i < tamanhoPalavra1; i++) {
 			
-			for(char b : texto2) {
+			for(int j = 0; j < tamanhoPalavra2; j++) {
 				
+				if(texto1[i] == texto2[j]) {
+					
+					texto3[i] = texto2[j];
+					
+					break;
+				}
+			}
+			
+		}
+		
+		for(int i = 0; i < tamanhoPalavra1; i++) {
+			if(texto1[i] == texto3[i]) {
+				continue;
+			}else {
+				quatidadeDiferencas++;
 			}
 		}
 		
-		
-		if(tamanhoPalavra1 > tamanhoPalavra2) {
-			diferencaTamanho = tamanhoPalavra1 - tamanhoPalavra2;
-		}else {
-			diferencaTamanho = tamanhoPalavra2 - tamanhoPalavra1;
-		}
-
-		for(int i = 0; i < palavra1.length(); i++) {
-			if(!palavra1.substring(i, i+1).equals(palavra2.substring(i, i+1))) {
-				quatidadeMudanca++;
-			}
-		}
-
-		if(quatidadeMudanca > 1) {
+		if(quatidadeDiferencas > 1) {
 			return false;
 		}
 
